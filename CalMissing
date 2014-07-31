@@ -1,0 +1,32 @@
+
+public class CalMissing {
+	public static void main(String[] args) {
+		int[]arr={1,2,3,4,7,8,9};
+		testMissingTwo(arr);
+	}
+
+	private static void testMissingTwo(int[] arr) {
+		
+		int sumCal =0;
+		int sumSqr =0;
+		int len = arr.length+2;
+		int sumSqrN = ((len)*(len+1)*((2*len)+1))/6;
+		int sumN = ((len)*(len+1))/2;
+		int linDiff;
+		int squareDiff;
+		for(int i=0;i<arr.length;i++)
+		{
+			sumCal +=arr[i];
+			sumSqr	+= (arr[i]*arr[i]);
+		}
+		
+		linDiff = sumN - sumCal;  // a+b
+		squareDiff = sumSqrN - sumSqr; //a2 + b2
+		int twoXY =(linDiff*linDiff) - squareDiff;
+		int xminusy=(int)Math.sqrt(squareDiff-twoXY);
+		int x=(linDiff+xminusy)/2;
+		int y=(linDiff-xminusy)/2;
+		
+		System.out.println("x"+x + "y"+y);
+}
+}
