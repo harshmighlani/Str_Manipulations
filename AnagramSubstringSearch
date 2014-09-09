@@ -1,0 +1,30 @@
+package calNum;
+
+import java.util.Arrays;
+public class AnagramSubstringSearch {
+
+	public static void main(String[] args) {
+		
+		testPartAnagram("BACDGABCDA","ABCD");
+	}
+	private static void testPartAnagram(String main,String part)
+	{
+		int lenPart = part.length();
+		part = sortStr(part);
+		
+		for(int i=0;i<main.length()-lenPart+1;i++)
+		{
+			if(sortStr(main.substring(i, i+lenPart)).equals(part))
+			{
+				System.out.println("found at index: " + i);
+			}
+		}
+	}
+	
+	private static String sortStr(String input)
+	{
+		char[] ar = input.toCharArray();
+		Arrays.sort(ar);
+		return String.valueOf(ar);
+	}
+}
