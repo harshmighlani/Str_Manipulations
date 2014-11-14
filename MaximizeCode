@@ -1,0 +1,41 @@
+
+public class MaximizeCode {
+
+	public static void main(String[] args) {
+		testStr("ab2c3");
+		
+	}
+	private static void  testStr(String s)
+	{
+		StringBuilder sb = new StringBuilder();
+		
+		int index = 0;
+		String tmpStr = "";
+		
+		for(char ch: s.toCharArray())
+		{
+			if(!Character.isDigit(ch))
+			{
+				tmpStr+= String.valueOf(ch);
+				//sb.append(ch);
+				index++;
+				continue;
+			}
+			else
+			{
+				String newStr = sb.toString()+ tmpStr;
+				sb = new StringBuilder();
+				
+				for(int i=0;i<Character.getNumericValue(s.charAt(index));i++)
+				{
+					sb.append(newStr);
+				}
+				tmpStr = "";
+				index++;
+				
+			}
+		}
+		
+		System.out.println(sb.toString());
+	}
+}
