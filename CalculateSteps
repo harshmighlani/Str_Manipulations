@@ -1,0 +1,27 @@
+
+public class CalculateSteps {
+
+	public static void main(String[] args) {
+		
+		calculateSteps(4, 2,"");
+	}
+	
+	private static void calculateSteps(int n, int k, String stepsTaken)
+	{
+		
+		if(n==0)
+		{
+			System.out.println(stepsTaken);
+			stepsTaken="";
+		}
+		
+		for(int i=1;i<=k;i++)
+		{
+			if(n>=i)
+			{
+				calculateSteps(n-i, k, stepsTaken.concat(""+i));
+			}
+		}
+		
+	}
+}
