@@ -1,0 +1,21 @@
+public static void printanagrams(char[] str, int start, int n)
+	{
+		if(start == n)
+		{
+			System.out.println(str);
+		}else{
+			for(int i = start; i < n ; i++)
+			{
+				swap(str,start,i);
+				printanagrams(str,start+1,n);
+				swap(str,start,i);
+				
+			}
+		}
+
+	}
+	public static void swap(char str[],int i, int j){
+		char tmp = str[i];
+		str[i] = str[j];
+		str[j] = tmp;
+	}
